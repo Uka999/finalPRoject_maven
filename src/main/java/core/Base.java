@@ -36,7 +36,7 @@ public class Base {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		logger = logger.getLogger("logger_File");
+		logger = Logger.getLogger("logger_File");
 		PropertyConfigurator.configure(log4jPath);
 	}
 	
@@ -79,6 +79,11 @@ public class Base {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().deleteAllCookies();
 }
+
+	private static String getBrowser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
