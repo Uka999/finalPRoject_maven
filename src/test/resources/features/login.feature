@@ -27,7 +27,7 @@ Feature: Test Environment Retail Page
     When User click on my account button
     Then User click on login button
     And User enter username and password
-    And User click on login button
+    And User click on login button to log in the page
 
   @tag2
   Scenario Outline: Title of your scenario outline

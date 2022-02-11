@@ -4,33 +4,37 @@ import core.Base;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.LoginPageObjects;
 
 public class LoginSteps extends Base {
+	
+	LoginPageObjects login = new LoginPageObjects();
 	
 	@Given ("^User is on test environment homepage$")
 	public void User_is_on_test_environment_homepage() {
 		
 	}
-	@When("^User click on my account button$")
+	
+	@When("User click on my account button")
 	public void user_click_on_my_account_button() {
-	    throw new io.cucumber.java.PendingException();
+		login.clickOnMyAccountButton();;
+	  
 	}
 
-	@Then("^User click on login button$")
+	@Then("User click on login button")
 	public void user_click_on_login_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   login.clickOnLoginButton();
 	}
 
-	@Then("^User enter username and password$")
+	@Then("User enter username and password")
 	public void user_enter_username_and_password() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-
-}
-	@Then("^User click on login button$")
-	public void user_click_on_login_button1() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    login.enterusername();
+	    login.enterPassword();
 	}
+
+	@Then("User click on login button to log in the page")
+	public void user_click_on_login_button_to_log_in_the_page() {
+		login.clickOnLoginButtonMain();
+	}
+	
 }
