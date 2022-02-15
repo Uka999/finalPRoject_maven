@@ -6,14 +6,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 public class initializer extends Base {
-	//we will write and our @before and afterhook method 
-	//coming from cucumber
 	
 	@Before
 	public void beforeHooks(Scenario scenario) {
 		logger.info("Scenario" + scenario.getName() + "Started");
-		browser (); //launch browser
-		openBrowser(); //url 
+		browser (); 
+		openBrowser(); 
 	}
 	
 	@After

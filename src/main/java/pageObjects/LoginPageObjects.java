@@ -7,48 +7,52 @@ import org.openqa.selenium.support.PageFactory;
 import core.Base;
 
 public class LoginPageObjects extends Base{
-	public LoginPageObjects () { 
+
+	public LoginPageObjects() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[text () = 'TEST ENVIRONMENT']")
-	private WebElement textToValidate;
+	@FindBy(xpath = "//a[text()='TEST ENVIRONMENT']")
+	private WebElement textToValildate;
 	@FindBy(xpath = "//span[text()='My Account']")
 	private WebElement myAccountButton;
-	@FindBy (xpath = "//a[text()='Login']")
+	@FindBy(xpath = "//a[text()='Login']")
 	private WebElement loginButton;
-	@FindBy(xpath ="//input [@ id = 'input-email']")
-	private WebElement usernameField;
-	@FindBy (xpath = "//input [@ id = 'input-password']")
+	@FindBy(xpath = "//input[@id='input-email']")
+	private WebElement userNameFiled;
+	@FindBy(xpath = "//input[@id='input-password']")
 	private WebElement passwordField;
-	@FindBy (xpath = "//input [@class = 'btn btn-primary']")
+	@FindBy(xpath = "//input[@value='Login']")
 	private WebElement loginButtonMain;
 	
-	
-	public void validatehomePage () {
-		String text = textToValidate.getText();
-		if (text.equalsIgnoreCase("TEST ENVIRONMENT"));
-			logger.info("Text Verified!");
-	}else { 
-			logger.info("Text does not Match!!");
+	public void validateHomePage() {
+		String text = textToValildate.getText();
+		if(text.equalsIgnoreCase("TEST ENVIRONMENT")) {
+			logger.info("Text verified!");
+		}else {
+			logger.info("Text does not match!");
+		}
 	}
-	
-	public void clickOnMyAccountButton () {
+	public void clickOnMyAccountButton() {
 		myAccountButton.click();
 	}
-	
 	public void clickOnLoginButton() {
 		loginButton.click();
 	}
-	public void enterusername () {
-		usernameField.sendKeys("test@test.com");
+	public void enterUserName() {
+		userNameFiled.sendKeys("johncolunga2399@gmail.com");
 	}
 	public void enterPassword() {
-		passwordField.sendKeys("123456");
+		passwordField.sendKeys("johncolunga2399");
 	}
-	public void clickOnLoginButtonMain () {
+	public void enterUserNameWithParam(String username) {
+		userNameFiled.sendKeys(username);
+	}
+	public void enterPasswordWithParam(String password) {
+		passwordField.sendKeys(password);
+	}
+	public void clickOnLoginButtonMain() {
 		loginButtonMain.click();
 	}
-	
-	
+
 }

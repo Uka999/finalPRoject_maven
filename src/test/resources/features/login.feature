@@ -17,25 +17,28 @@
 ## (Comments)
 #Sample Feature Definition Template
 
-@smoke @regression
+
 
 Feature: Test Environment Retail Page
-  
- @loginToTestEnv
-  Scenario: Login To Test Environment Retail Page
-    Given User is on test environment homepage
-    When User click on my account button
+ 
+Background: 
+	 Given User is on test environment homepage
+   When User click on my account button
+   
+@login
+Scenario: Login To Test Environment Retail Page
     Then User click on login button
-    And User enter username and password
-    And User click on login button to log in the page
+    Then user enter username and password
+    Then User click on login button to log in the page
+ 
+ Scenario Outline: Title of your scenario outline
+    Then user click on login button
+    Then user enter username '<username>' and password '<password>'
+    Then user click on login button to login to the page
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+Examples: 
+    | username | password |
+    | eagles@tekschool.us | eagles  |
+		| hawks@tekschool.us  | hawks   |
+		| falcons@tekschool.us| falcons |
+    
